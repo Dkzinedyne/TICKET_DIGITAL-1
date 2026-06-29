@@ -24,21 +24,29 @@
                         Aproxime a carteirinha do leitor
                     </h5>
 
-                    <form id="formLeitor" method="POST">
+                   <form id="formLeitor" method="POST">
 
-                        {% csrf_token %}
+    {% csrf_token %}
 
-                        <input
-                            type="text"
-                            id="matricula"
-                            name="matricula"
-                            class="form-control form-control-lg text-center"
-                            placeholder="Aguardando leitura..."
-                            autocomplete="off"
-                            autofocus
-                        >
+    <input
+        type="text"
+        id="matricula"
+        name="matricula"
+        class="form-control form-control-lg text-center"
+        placeholder="Aguardando leitura..."
+        autocomplete="off"
+        autofocus
+    >
 
-                    </form>
+    <div class="d-flex justify-content-end mt-3">
+
+        <a href="{% url 'home' %}" class="btn btn-outline-secondary">
+            ← Voltar ao Menu
+        </a>
+
+    </div>
+
+</form>
 
                     <hr>
 
