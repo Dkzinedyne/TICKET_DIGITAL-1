@@ -87,7 +87,7 @@ TICKET_DIGITAL/
 │   └── ifam_humaita_logo_inicio.png
 │
 ├── dados/
-│   └── banco_ticket.db        # Banco SQLite (gerado automaticamente)
+│   └── banco_ticket.db         # Banco único: dados do app + tabelas internas do Django
 │
 └── automacao_pdf/              # ⚙ Automação BotCity (PDF → CSV)
     ├── entrada_pdfs/            # você coloca os PDFs do SIGAA aqui
@@ -160,7 +160,12 @@ pip install -r requirements.txt
 
 ```bash
 python src/banco.py
+python manage.py migrate
 ```
+
+O primeiro comando cria as tabelas do app (`campus`, `turmas`, `alunos`, `refeicoes`) em
+`dados/banco_ticket.db`. O segundo cria, **no mesmo arquivo**, as tabelas internas do Django
+(`auth`, `admin`, `sessions`) — desde a refatoração, é um banco único só.
 
 ### 4. Iniciar o servidor
 
